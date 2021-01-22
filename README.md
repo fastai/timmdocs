@@ -1,16 +1,3 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
-
-- [Pytorch Image Models (timm)](#pytorch-image-models-timm)
-  - [Install](#install)
-  - [How to use](#how-to-use)
-    - [Create a model](#create-a-model)
-    - [List Models with Pretrained Weights](#list-models-with-pretrained-weights)
-    - [Search for model architectures by Wildcard](#search-for-model-architectures-by-wildcard)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 # Pytorch Image Models (timm)
 > `timm` is a deep-learning library created by <a href='https://twitter.com/wightmanr'>Ross Wightman</a> and is a collection of SOTA computer vision models, layers, utilities, optimizers, schedulers, data-loaders, augmentations and also training/validating scripts with ability to reproduce ImageNet training results. 
 
