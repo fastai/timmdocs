@@ -1,6 +1,7 @@
 {
   "timmdocs": {
     "Overview": "/",
-    "Model Architectures (WIP)": "core.html"
+    "Model Architectures (WIP)": "core.html",
+    "Model Training": "training.html"
   }
 }

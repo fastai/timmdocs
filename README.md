@@ -1,5 +1,5 @@
 # Pytorch Image Models (timm)
-> <a href='https://twitter.com/wightmanr'>timm](https://github.com/rwightman/pytorch-image-models) is a deep-learning library created by [Ross Wightman</a> and is a collection of SOTA computer vision models, layers, utilities, optimizers, schedulers, data-loaders, augmentations and also training/validating scripts with ability to reproduce ImageNet training results. 
+> `timm` is a deep-learning library created by <a href='https://twitter.com/wightmanr'>Ross Wightman</a> and is a collection of SOTA computer vision models, layers, utilities, optimizers, schedulers, data-loaders, augmentations and also training/validating scripts with ability to reproduce ImageNet training results. 
 
 
 ## Install
