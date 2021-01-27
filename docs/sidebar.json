@@ -1,7 +1,7 @@
 {
   "timmdocs": {
     "Overview": "/",
-    "Model Architectures (WIP)": "core.html",
+    "Model Architectures (WIP)": "model_architectures.html",
     "Model Training": "training.html",
     "Dataset": "dataset.html",
     "Loss Functions": "loss.cross_entropy.html"

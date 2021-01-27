@@ -11,7 +11,7 @@ entries:
       url: /
     - output: web,pdf
       title: Model Architectures (WIP)
-      url: core.html
+      url: model_architectures.html
     - output: web,pdf
       title: Model Training
       url: training.html
