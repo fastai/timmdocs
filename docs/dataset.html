@@ -341,9 +341,8 @@ tar -xvf imagenette2-320.tar
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Thus, for such a case, we would require three versions of the batch - original, augmix1 and augmix2. So how we do achieve this? Using <code>AugmixDataset</code> ofcourse!</p>
-<blockquote><p>Note that <code>augmix1</code> and <code>augmix2</code> are the augmented versions of the original batch where the augmentations are chosen randomly from a list of Operations.</p>
-</blockquote>
+<p>Thus, for such a case, we would require three versions of the batch - original, augmix1 and augmix2. So how we do achieve this? Using <code>AugmixDataset</code> ofcourse! 
+{% include note.html content='<code>augmix1</code> and <code>augmix2</code> are the augmented versions of the original batch where the augmentations are chosen randomly from a list of Operations. ' %}</p>
 
 </div>
 </div>
@@ -357,9 +356,8 @@ tar -xvf imagenette2-320.tar
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>First, we get an <code>X</code> and corresponding label <code>y</code> from the <code>self.dataset</code> which is the dataset passed into the <code>AugmixDataset</code> constructor. Next, we normalize this image <code>X</code> and add it to a variable called <code>x_list</code>.</p>
-<p>Next, based on the <code>num_splits</code> argument which defaults to 0, we apply <code>augmentations</code> to <code>X</code>, normalize the augmented output and append it to <code>x_list</code>.</p>
-<blockquote><p>Thus, if <code>num_splits=2</code>, then <code>x_list</code> has two items - <code>original + augmented</code>. If <code>num_splits=3</code>, then <code>x_list</code> has three items - <code>original + augmented1 + augmented2</code>. And so on..</p>
-</blockquote>
+<p>Next, based on the <code>num_splits</code> argument which defaults to 0, we apply <code>augmentations</code> to <code>X</code>, normalize the augmented output and append it to <code>x_list</code>. 
+{% include note.html content='If <code>num_splits=2</code>, then <code>x_list</code> has two items - <code>original + augmented</code>. If <code>num_splits=3</code>, then <code>x_list</code> has three items - <code>original + augmented1 + augmented2</code>. And so on..' %}</p>
 
 </div>
 </div>
@@ -429,10 +427,8 @@ tar -xvf imagenette2-320.tar
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now at this stage, you might ask -</p>
-<blockquote><p>Well, we passed in <code>batch_size=8</code>, but the batch size returned by <code>loader_train</code> is 16?</p>
-</blockquote>
-<p>Because we passed in <code>num_aug_splits=2</code>. In this case, the <code>loader_train</code> has the first 8 original images and next 8 images that represent <code>augmix1</code>.</p>
+<p>{% include note.html content='Now at this stage, you might ask - we passed in <code>batch_size=8</code>, but the batch size returned by <code>loader_train</code> is 16? Why would that be?' %}
+Because we passed in <code>num_aug_splits=2</code>. In this case, the <code>loader_train</code> has the first 8 original images and next 8 images that represent <code>augmix1</code>.</p>
 <p>Had we passed in <code>num_aug_splits=3</code>, then the effective <code>batch_size</code> would have been 24, where the first 8 images would have been the original images, next 8 representing <code>augmix1</code> and the last 8 representing <code>augmix2</code>.</p>
 
 </div>
