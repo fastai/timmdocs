@@ -13,8 +13,8 @@ entries:
       title: Model Architectures (WIP)
       url: model_architectures.html
     - output: web,pdf
-      title: Model Training
-      url: training.html
+      title: Training Scripts
+      url: training_scripts.html
     - output: web,pdf
       title: Dataset
       url: dataset.html
