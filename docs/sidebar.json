@@ -4,6 +4,7 @@
     "Model Architectures (WIP)": "model_architectures.html",
     "Training Scripts": "training_scripts.html",
     "Dataset": "dataset.html",
-    "Loss Functions": "loss.cross_entropy.html"
+    "Loss Functions": "loss.cross_entropy.html",
+    "Models API (WIP)": "models.html"
   }
 }

@@ -21,6 +21,9 @@ entries:
     - output: web,pdf
       title: Loss Functions
       url: loss.cross_entropy.html
+    - output: web,pdf
+      title: Models API (WIP)
+      url: models.html
     output: web
     title: timmdocs
   output: web
