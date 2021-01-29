@@ -3,6 +3,7 @@
     "Overview": "/",
     "Model Architectures (WIP)": "model_architectures.html",
     "Training Scripts": "training_scripts.html",
+    "How to train your models using `train.py` (WIP)": "training.html",
     "Dataset": "dataset.html",
     "Loss Functions": "loss.cross_entropy.html",
     "Models API (WIP)": "models.html"

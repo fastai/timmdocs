@@ -16,6 +16,9 @@ entries:
       title: Training Scripts
       url: training_scripts.html
     - output: web,pdf
+      title: How to train your models using `train.py` (WIP)
+      url: training.html
+    - output: web,pdf
       title: Dataset
       url: dataset.html
     - output: web,pdf
