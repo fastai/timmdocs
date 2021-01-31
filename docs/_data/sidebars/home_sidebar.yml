@@ -9,24 +9,28 @@ entries:
     - output: web,pdf
       title: Overview
       url: /
+      subfolders:
+      - output: web
+        subfolderitems:
+        - output: web,pdf
+          title: Training Scripts
+          url: /training_scripts
+        - output: web,pdf
+          title: 'How to train your own models using timm? '
+          url: /training
+        title: Training
     - output: web,pdf
       title: Model Architectures (WIP)
-      url: model_architectures.html
-    - output: web,pdf
-      title: Training Scripts
-      url: training_scripts.html
-    - output: web,pdf
-      title: 'How to train your own models using timm? '
-      url: training.html
+      url: /model_architectures
     - output: web,pdf
       title: Dataset
-      url: dataset.html
+      url: /dataset
     - output: web,pdf
       title: Loss Functions
-      url: loss.cross_entropy.html
+      url: /loss.cross_entropy
     - output: web,pdf
       title: Models API (WIP)
-      url: models.html
+      url: /models
     output: web
     title: timmdocs
   output: web
