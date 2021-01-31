@@ -16,7 +16,7 @@ entries:
       title: Training Scripts
       url: training_scripts.html
     - output: web,pdf
-      title: How to train your models using `train.py` (WIP)
+      title: 'How to train your own models using timm? '
       url: training.html
     - output: web,pdf
       title: Dataset
