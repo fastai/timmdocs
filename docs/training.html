@@ -175,14 +175,182 @@ nb_path: "nbs/01b_training.ipynb"
 <li>Setup <u>exponential moving average</u> of model weights. This is similar to <a href="https://pytorch.org/blog/pytorch-1.6-now-includes-stochastic-weight-averaging/">Stochastic Weight Averaging</a>. </li>
 <li>Setup <u>distributed training</u> based on parameters from step-1.</li>
 <li>Setup <u>learning rate scheduler</u>.</li>
-<li>Create training and validation dataset.</li>
-<li>Setup Mixup/Cutmix data augmentation.</li>
-<li>Convert training dataset to <code>AugmixDataset</code> if number of augmentation batch splits from step-5 is greater than 1. </li>
-<li>Create training data loader and Validation dataloader.
-{% include note.html content='Transforms/Augmentations also get created inside the training dataloader.' %}18. Setup Loss function. </li>
-<li>Setup model checkpointing and evaluation metrics. </li>
-<li>Train and Validate the model and also store the eval metrics to an output file.</li>
+<li>Create <u>training and validation dataset</u>.</li>
+<li>Setup <u>Mixup/Cutmix</u> data augmentation.</li>
+<li>Convert training dataset to <u>`AugmixDataset`</u> if number of augmentation batch splits from step-5 is greater than 1. </li>
+<li>Create <u>training data loader and Validation dataloader</u>.
+{% include note.html content='Transforms/Augmentations also get created inside the training dataloader.' %}18. Setup <u>Loss</u> function. </li>
+<li>Setup <u>model checkpointing and evaluation metrics</u>. </li>
+<li><u>Train and Validate</u> the model and also store the eval metrics to an output file.</li>
 </ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Some-key-timm-features">Some key <code>timm</code> features<a class="anchor-link" href="#Some-key-timm-features"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Auto-Augment">Auto-Augment<a class="anchor-link" href="#Auto-Augment"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To enable auto augmentation during training -</p>
+<div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">train</span><span class="o">.</span><span class="n">py</span> <span class="o">./</span><span class="n">imagenette2</span><span class="o">-</span><span class="mi">320</span> <span class="o">--</span><span class="n">aa</span> <span class="s1">&#39;v0&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Augmix">Augmix<a class="anchor-link" href="#Augmix"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A brief introduction about augmix has been presented <a href="https://fastai.github.io/timmdocs/dataset.html#AugmixDataset">here</a>. To enable augmix during training, simply do:</p>
+<div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">train</span><span class="o">.</span><span class="n">py</span> <span class="o">./</span><span class="n">imagenette2</span><span class="o">-</span><span class="mi">320</span> <span class="o">--</span><span class="n">aug</span><span class="o">-</span><span class="n">splits</span> <span class="mi">3</span> <span class="o">--</span><span class="n">jsd</span>
+</pre></div>
+<p><code>timm</code> also supports augmix with <code>RandAugment</code> and <code>AutoAugment</code> like so:</p>
+<div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">train</span><span class="o">.</span><span class="n">py</span> <span class="o">./</span><span class="n">imagenette2</span><span class="o">-</span><span class="mi">320</span> <span class="o">--</span><span class="n">aug</span><span class="o">-</span><span class="n">splits</span> <span class="mi">3</span> <span class="o">--</span><span class="n">jsd</span> <span class="o">--</span><span class="n">aa</span> <span class="n">rand</span><span class="o">-</span><span class="n">m9</span><span class="o">-</span><span class="n">mstd0</span><span class="o">.</span><span class="mi">5</span><span class="o">-</span><span class="n">inc1</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Distributed-Training-on-multiple-GPUs">Distributed Training on multiple GPUs<a class="anchor-link" href="#Distributed-Training-on-multiple-GPUs"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To train models on multiple GPUs, simply replace <code>python train.py</code> with <code>./distributed_train.sh &lt;num-gpus&gt;</code> like so:</p>
+<div class="highlight"><pre><span></span><span class="o">./</span><span class="n">distributed_train</span><span class="o">.</span><span class="n">sh</span> <span class="mi">4</span> <span class="o">./</span><span class="n">imagenette2</span><span class="o">-</span><span class="mi">320</span> <span class="o">--</span><span class="n">aug</span><span class="o">-</span><span class="n">splits</span> <span class="mi">3</span> <span class="o">--</span><span class="n">jsd</span>
+</pre></div>
+<p>This trains the model using <code>AugMix</code> data augmentation on 4 GPUs.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Mixed-precision-training">Mixed precision training<a class="anchor-link" href="#Mixed-precision-training"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To enable mixed precision training, simply add the <code>--amp</code> flag. <code>timm</code> will automatically implement mixed precision training either using <code>apex</code> or PyTorch Native mixed precision training.</p>
+<div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">train</span><span class="o">.</span><span class="n">py</span> <span class="o">../</span><span class="n">imagenette2</span><span class="o">-</span><span class="mi">320</span> <span class="o">--</span><span class="n">aug</span><span class="o">-</span><span class="n">splits</span> <span class="mi">3</span> <span class="o">--</span><span class="n">jsd</span> <span class="o">--</span><span class="n">amp</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Auxiliary-Batch-Norm/-SplitBatchNorm">Auxiliary Batch Norm/ <code>SplitBatchNorm</code><a class="anchor-link" href="#Auxiliary-Batch-Norm/-SplitBatchNorm"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>From the paper,</p>
+
+<pre><code>markdown
+Batch normalization serves as an essential component for many state-of-the-art computer vision models. Specifically, BN normalizes input features by the mean and variance computed within each mini-batch. **One intrinsic assumption of utilizing BN is that the input features should come from a single or similar distributions.** This normalization behavior could be problematic if the mini-batch contains data from different distributions, there- fore resulting in inaccurate statistics estimation.
+
+To disentangle this mixture distribution into two simpler ones respectively for the clean and adversarial images, we hereby propose an auxiliary BN to guarantee its normalization statistics are exclusively preformed on the adversarial examples.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To enable split batch norm,</p>
+<div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">train</span><span class="o">.</span><span class="n">py</span> <span class="o">./</span><span class="n">imagenette2</span><span class="o">-</span><span class="mi">320</span> <span class="o">--</span><span class="n">aug</span><span class="o">-</span><span class="n">splits</span> <span class="mi">3</span> <span class="o">--</span><span class="n">aa</span> <span class="n">rand</span><span class="o">-</span><span class="n">m9</span><span class="o">-</span><span class="n">mstd0</span><span class="o">.</span><span class="mi">5</span><span class="o">-</span><span class="n">inc1</span> <span class="o">--</span><span class="n">split</span><span class="o">-</span><span class="n">bn</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Using the above command, <code>timm</code> now has separate batch normalization layer for each augmentation split.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Synchronized-Batch-Norm">Synchronized Batch Norm<a class="anchor-link" href="#Synchronized-Batch-Norm"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Synchronized batch norm is only used when training on multiple GPUs. From <a href="https://paperswithcode.com/method/syncbn">papers with code</a>:</p>
+
+<pre><code>markdown
+Synchronized Batch Normalization (SyncBN) is a type of batch normalization used for multi-GPU training. Standard batch normalization only normalizes the data within each device (GPU). SyncBN normalizes the input within the whole mini-batch.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To enable, simply add <code>--sync-bn</code> flag like so:</p>
+<div class="highlight"><pre><span></span><span class="o">./</span><span class="n">distributed_train</span><span class="o">.</span><span class="n">sh</span> <span class="mi">4</span> <span class="o">../</span><span class="n">imagenette2</span><span class="o">-</span><span class="mi">320</span> <span class="o">--</span><span class="n">aug</span><span class="o">-</span><span class="n">splits</span> <span class="mi">3</span> <span class="o">--</span><span class="n">jsd</span> <span class="o">--</span><span class="n">sync</span><span class="o">-</span><span class="n">bn</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Mixup-and-Cutmix">Mixup and Cutmix<a class="anchor-link" href="#Mixup-and-Cutmix"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To enable either mixup or cutmix, simply add the <code>--mixup</code> or <code>--cutmix</code> flag with probability of applying the augmentation.</p>
+<p>For example, to enable mixup,</p>
+<div class="highlight"><pre><span></span><span class="n">train</span><span class="o">.</span><span class="n">py</span> <span class="o">../</span><span class="n">imagenette2</span><span class="o">-</span><span class="mi">320</span> <span class="o">--</span><span class="n">mixup</span> <span class="mf">0.5</span>
+</pre></div>
+<p>Or for Cutmix,</p>
+<div class="highlight"><pre><span></span><span class="n">train</span><span class="o">.</span><span class="n">py</span> <span class="o">../</span><span class="n">imagenette2</span><span class="o">-</span><span class="mi">320</span> <span class="o">--</span><span class="n">cutmix</span> <span class="mf">0.5</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It is also possible to enable both,</p>
+<div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">train</span><span class="o">.</span><span class="n">py</span> <span class="o">../</span><span class="n">imagenette2</span><span class="o">-</span><span class="mi">320</span> <span class="o">--</span><span class="n">mixup</span> <span class="mf">0.5</span> <span class="o">--</span><span class="n">cutmix</span> <span class="mf">0.5</span> <span class="o">--</span><span class="n">mixup</span><span class="o">-</span><span class="n">switch</span><span class="o">-</span><span class="n">prob</span> <span class="mf">0.3</span>
+</pre></div>
+<p>The above command will use either Mixup or Cutmix as data augmentation techniques and apply it to the batch with 50% probability. It will also switch between the two with 30% probability.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There is also a parameter to turn off Mixup/Cutmix augmentation at a certail epoch:</p>
+<div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">train</span><span class="o">.</span><span class="n">py</span> <span class="o">../</span><span class="n">imagenette2</span><span class="o">-</span><span class="mi">320</span> <span class="o">--</span><span class="n">mixup</span> <span class="mf">0.5</span> <span class="o">--</span><span class="n">cutmix</span> <span class="mf">0.5</span> <span class="o">--</span><span class="n">mixup</span><span class="o">-</span><span class="n">switch</span><span class="o">-</span><span class="n">prob</span> <span class="mf">0.3</span> <span class="o">--</span><span class="n">mixup</span><span class="o">-</span><span class="n">off</span><span class="o">-</span><span class="n">epoch</span> <span class="mi">10</span>
+</pre></div>
+<p>The above command only applies the Mixup/Cutmix data augmentation for the first 10 epochs.</p>
 
 </div>
 </div>
