@@ -34,12 +34,18 @@ entries:
           title: Models API (WIP)
           url: /models
         title: Models
-    - output: web,pdf
-      title: Dataset
-      url: /dataset
-    - output: web,pdf
-      title: Loss Functions
-      url: /loss.cross_entropy
+      - output: web
+        subfolderitems:
+        - output: web,pdf
+          title: Dataset
+          url: /dataset
+        title: Data
+      - output: web
+        subfolderitems:
+        - output: web,pdf
+          title: Loss Functions
+          url: /loss.cross_entropy
+        title: Loss
     output: web
     title: timmdocs
   output: web

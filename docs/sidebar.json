@@ -12,9 +12,13 @@
       "Models": {
         "Model Architectures (WIP)": "/model_architectures",
         "Models API (WIP)": "/models"
+      },
+      "Data": {
+        "Dataset": "/dataset"
+      },
+      "Loss": {
+        "Loss Functions": "/loss.cross_entropy"
       }
-    },
-    "Dataset": "/dataset",
-    "Loss Functions": "/loss.cross_entropy"
+    }
   }
 }
