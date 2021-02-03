@@ -1,17 +1,20 @@
 {
   "timmdocs": {
     "Overview": "/",
-
     "": {
-      "Training":{
-          "Training Scripts": "/training_scripts",
-          "How to train your own models using timm? ": "/training"  
-        }    
+      "Training": {
+        "Training Scripts": "/training_scripts",
+        "How to train your own models using timm? ": "/training"
+      },
+      "Augmentation": {
+        "Mixup": "/augmentation"
+      },
+      "Models": {
+        "Model Architectures (WIP)": "/model_architectures",
+        "Models API (WIP)": "/models"
+      }
     },
-
-    "Model Architectures (WIP)": "/model_architectures",      
     "Dataset": "/dataset",
-    "Loss Functions": "/loss.cross_entropy",
-    "Models API (WIP)": "/models"
+    "Loss Functions": "/loss.cross_entropy"
   }
 }

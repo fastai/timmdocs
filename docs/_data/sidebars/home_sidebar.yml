@@ -19,18 +19,27 @@ entries:
           title: 'How to train your own models using timm? '
           url: /training
         title: Training
-    - output: web,pdf
-      title: Model Architectures (WIP)
-      url: /model_architectures
+      - output: web
+        subfolderitems:
+        - output: web,pdf
+          title: Mixup
+          url: /augmentation
+        title: Augmentation
+      - output: web
+        subfolderitems:
+        - output: web,pdf
+          title: Model Architectures (WIP)
+          url: /model_architectures
+        - output: web,pdf
+          title: Models API (WIP)
+          url: /models
+        title: Models
     - output: web,pdf
       title: Dataset
       url: /dataset
     - output: web,pdf
       title: Loss Functions
       url: /loss.cross_entropy
-    - output: web,pdf
-      title: Models API (WIP)
-      url: /models
     output: web
     title: timmdocs
   output: web
