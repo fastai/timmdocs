@@ -31,7 +31,7 @@ entries:
           title: Model Architectures (WIP)
           url: /model_architectures
         - output: web,pdf
-          title: Models API (WIP)
+          title: Models API
           url: /models
         - output: web,pdf
           title: Create Model
@@ -49,6 +49,12 @@ entries:
           title: Loss Functions
           url: /loss.cross_entropy
         title: Loss
+      - output: web
+        subfolderitems:
+        - output: web,pdf
+          title: What all goes on inside the create_model function?
+          url: /tutorial_feature_extractor.html
+        title: Tutorials
     output: web
     title: timmdocs
   output: web
