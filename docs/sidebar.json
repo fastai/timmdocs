@@ -22,7 +22,8 @@
         "Loss Functions": "/loss.cross_entropy"
       },
       "Tutorials": {
-        "What all goes on inside the create_model function?": "/tutorial_feature_extractor.html"
+        "What all goes on inside the create_model function?": "/tutorial_feature_extractor",
+        "What is Split BN and how does timm implement it?": "/tutorial_splitbn"
       }
     }
   }
