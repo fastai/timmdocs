@@ -4,7 +4,8 @@
     "": {
       "Training": {
         "Training Scripts": "/training_scripts",
-        "How to train your own models using timm? ": "/training"
+        "How to train your own models using timm? ": "/training", 
+        "Model exponential moving average (EMA)": "/training_modelEMA"
       },
       "Augmentation": {
         "Mixup": "/augmentation"

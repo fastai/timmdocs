@@ -18,6 +18,9 @@ entries:
         - output: web,pdf
           title: 'How to train your own models using timm? '
           url: /training
+        - output: web,pdf
+          title: Model exponential moving average (EMA)
+          url: /training_modelEMA
         title: Training
       - output: web
         subfolderitems:
