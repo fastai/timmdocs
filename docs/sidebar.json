@@ -16,7 +16,8 @@
         "Create Model": "/create_model"
       },
       "Data": {
-        "Dataset": "/dataset"
+        "Dataset": "/dataset", 
+        "Prefetch Loader": "/dataloader"
       },
       "Loss": {
         "Loss Functions": "/loss.cross_entropy"
