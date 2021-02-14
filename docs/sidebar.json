@@ -20,7 +20,8 @@
         "Prefetch Loader": "/dataloader"
       },
       "Loss": {
-        "Loss Functions": "/loss.cross_entropy"
+        "Loss Functions": "/loss.cross_entropy", 
+        "Assymetric Loss": "/asymmetric_loss"
       },
       "Tutorials": {
         "What all goes on inside the create_model function?": "/tutorial_feature_extractor",

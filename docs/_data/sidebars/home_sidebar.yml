@@ -54,6 +54,9 @@ entries:
         - output: web,pdf
           title: Loss Functions
           url: /loss.cross_entropy
+        - output: web,pdf
+          title: Assymetric Loss
+          url: /asymmetric_loss
         title: Loss
       - output: web
         subfolderitems:
