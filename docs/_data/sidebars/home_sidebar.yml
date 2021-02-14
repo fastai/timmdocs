@@ -57,6 +57,9 @@ entries:
         - output: web,pdf
           title: Assymetric Loss
           url: /asymmetric_loss
+        - output: web,pdf
+          title: JSD & Cross Entropy
+          url: /jsd_cross_entropy
         title: Loss
       - output: web
         subfolderitems:

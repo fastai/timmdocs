@@ -21,7 +21,8 @@
       },
       "Loss": {
         "Loss Functions": "/loss.cross_entropy", 
-        "Assymetric Loss": "/asymmetric_loss"
+        "Assymetric Loss": "/asymmetric_loss",
+        "JSD & Cross Entropy": "/jsd_cross_entropy"
       },
       "Tutorials": {
         "What all goes on inside the create_model function?": "/tutorial_feature_extractor",
