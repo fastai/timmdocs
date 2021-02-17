@@ -31,8 +31,11 @@ entries:
           title: RandAugment
           url: /RandAugment
         - output: web,pdf
-          title: RandErase
+          title: Random Erase
           url: /RandomErase
+        - output: web,pdf
+          title: AutoAugment
+          url: /AutoAugment
         title: Augmentation
       - output: web
         subfolderitems:

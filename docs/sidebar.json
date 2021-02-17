@@ -10,7 +10,8 @@
       "Augmentation": {
         "Mixup & Cutmix": "/mixup_cutmix",
         "RandAugment": "/RandAugment", 
-        "RandErase": "/RandomErase"
+        "Random Erase": "/RandomErase", 
+        "AutoAugment": "/AutoAugment"
       },
       "Models": {
         "Model Architectures (WIP)": "/model_architectures",
