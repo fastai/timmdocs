@@ -36,6 +36,9 @@ entries:
         - output: web,pdf
           title: AutoAugment
           url: /AutoAugment
+        - output: web,pdf
+          title: Random Resized Crop and Interpolation
+          url: /random_resized_crop
         title: Augmentation
       - output: web
         subfolderitems:

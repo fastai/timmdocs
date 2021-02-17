@@ -11,7 +11,8 @@
         "Mixup & Cutmix": "/mixup_cutmix",
         "RandAugment": "/RandAugment", 
         "Random Erase": "/RandomErase", 
-        "AutoAugment": "/AutoAugment"
+        "AutoAugment": "/AutoAugment", 
+        "Random Resized Crop and Interpolation": "/random_resized_crop"
       },
       "Models": {
         "Model Architectures (WIP)": "/model_architectures",
