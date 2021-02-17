@@ -9,7 +9,8 @@
       },
       "Augmentation": {
         "Mixup & Cutmix": "/mixup_cutmix",
-        "RandAugment": "/RandAugment"
+        "RandAugment": "/RandAugment", 
+        "RandErase": "/RandomErase"
       },
       "Models": {
         "Model Architectures (WIP)": "/model_architectures",
