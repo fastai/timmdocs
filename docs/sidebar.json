@@ -8,7 +8,8 @@
         "Model exponential moving average (EMA)": "/training_modelEMA"
       },
       "Augmentation": {
-        "Mixup": "/augmentation"
+        "Mixup": "/augmentation",
+        "RandAugment": "/RandAugment"
       },
       "Models": {
         "Model Architectures (WIP)": "/model_architectures",
