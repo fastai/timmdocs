@@ -25,8 +25,8 @@ entries:
       - output: web
         subfolderitems:
         - output: web,pdf
-          title: Mixup
-          url: /augmentation
+          title: Mixup & Cutmix
+          url: /mixup_cutmix
         - output: web,pdf
           title: RandAugment
           url: /RandAugment

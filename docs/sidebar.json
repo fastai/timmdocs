@@ -8,7 +8,7 @@
         "Model exponential moving average (EMA)": "/training_modelEMA"
       },
       "Augmentation": {
-        "Mixup": "/augmentation",
+        "Mixup & Cutmix": "/mixup_cutmix",
         "RandAugment": "/RandAugment"
       },
       "Models": {
