@@ -76,6 +76,12 @@ entries:
       - output: web
         subfolderitems:
         - output: web,pdf
+          title: Optimizers
+          url: /Optimizers
+        title: Optimizers
+      - output: web
+        subfolderitems:
+        - output: web,pdf
           title: What all goes on inside the create_model function?
           url: /tutorial_feature_extractor
         - output: web,pdf
