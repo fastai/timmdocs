@@ -34,25 +34,25 @@ nb_path: "nbs/04_Optimizers.ipynb"
 <p>This tutorial presents the various optimizers available in <code>timm</code>. We look at how we could use each of them using the <code>timm</code> training script and also as standalone optimizers for custom PyTorch training scripts.</p>
 <p>The various optimizers available in <code>timm</code> are:</p>
 <ol>
-<li>SGD </li>
-<li>Adam</li>
-<li>AdamW</li>
-<li>Nadam</li>
-<li>Radam </li>
-<li>AdamP</li>
-<li>SGDP</li>
-<li>Adadelta </li>
-<li>Adafactor</li>
-<li>ADAHESSIAN </li>
-<li>RMSprop </li>
-<li>NovoGrad</li>
+<li><a href="http://www.cs.toronto.edu/~hinton/absps/momentum.pdf">SGD</a></li>
+<li><a href="https://arxiv.org/abs/1412.6980">Adam</a></li>
+<li><a href="https://www.fast.ai/2018/07/02/adam-weight-decay/">AdamW</a></li>
+<li><a href="http://cs229.stanford.edu/proj2015/054_report.pdf">Nadam</a></li>
+<li><a href="https://arxiv.org/abs/1908.03265v1">Radam</a></li>
+<li><a href="https://arxiv.org/abs/2006.08217">AdamP</a></li>
+<li><a href="https://arxiv.org/abs/2006.08217">SGDP</a></li>
+<li><a href="https://arxiv.org/abs/1212.5701">Adadelta</a> </li>
+<li><a href="https://arxiv.org/abs/1804.04235">Adafactor</a></li>
+<li><a href="https://arxiv.org/abs/2006.00719">ADAHESSIAN</a></li>
+<li><a href="https://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf">RMSprop</a> </li>
+<li><a href="https://arxiv.org/abs/1905.11286">NovoGrad</a></li>
 </ol>
 <p>And some more from <code>apex</code> like:</p>
 <ol>
-<li>FusedSGD</li>
-<li>FusedAdam</li>
-<li>FusedLAMB</li>
-<li>FusedNovoGrad</li>
+<li><a href="https://nvidia.github.io/apex/optimizers.html#apex.optimizers.FusedSGD">FusedSGD</a></li>
+<li><a href="https://nvidia.github.io/apex/optimizers.html#apex.optimizers.FusedAdam">FusedAdam</a></li>
+<li><a href="https://nvidia.github.io/apex/optimizers.html#apex.optimizers.FusedLAMB">FusedLAMB</a></li>
+<li><a href="https://nvidia.github.io/apex/optimizers.html#apex.optimizers.FusedNovoGrad">FusedNovoGrad</a></li>
 </ol>
 <p>which are GPU-only.</p>
 <p><code>timm</code> also supports lookahead optimizer.</p>
