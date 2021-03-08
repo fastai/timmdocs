@@ -82,8 +82,11 @@ entries:
       - output: web
         subfolderitems:
         - output: web,pdf
-          title: Schedulers
+          title: Overview
           url: /schedulers
+        - output: web,pdf
+          title: Cosine
+          url: /SGDR
         title: Schedulers
       - output: web
         subfolderitems:

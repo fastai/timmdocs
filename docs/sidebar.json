@@ -32,7 +32,8 @@
         "Optimizers": "/Optimizers"
       },
       "Schedulers": {
-        "Schedulers": "/schedulers"
+        "Overview": "/schedulers",
+        "Cosine": "/SGDR"
       },
       "Tutorials": {
         "What all goes on inside the create_model function?": "/tutorial_feature_extractor",
