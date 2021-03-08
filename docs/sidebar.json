@@ -33,7 +33,8 @@
       },
       "Schedulers": {
         "Overview": "/schedulers",
-        "Cosine": "/SGDR"
+        "Cosine": "/SGDR", 
+        "StepLR": "/StepLR"
       },
       "Tutorials": {
         "What all goes on inside the create_model function?": "/tutorial_feature_extractor",
