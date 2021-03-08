@@ -90,6 +90,9 @@ entries:
         - output: web,pdf
           title: StepLR
           url: /StepLR
+        - output: web,pdf
+          title: Tanh
+          url: /tanh
         title: Schedulers
       - output: web
         subfolderitems:
