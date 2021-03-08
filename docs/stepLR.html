@@ -154,22 +154,6 @@ nb_path: "nbs/07c_stepLR.ipynb"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>optimizer:Optimizer</code>: The optimizer used to update the parameters of the model.</p>
-<p><code>decay_t</code>: Number of epochs after which to decay the learning rate.</p>
-<p><code>decay_rate</code>: The decay rate to reduce the learning rate by.</p>
-<p><code>warmup_t</code>: Number of warmup epochs.</p>
-<p><code>warmup_lr_init</code>: The initial LR during warmup phase.</p>
-<p><code>noise_range_t</code>: The upper and lower limit of noise.</p>
-<p><code>noise_pct</code>: Percentage of noise to add.</p>
-<p><code>noise_std</code>: Noise standard deviation.</p>
-<p><code>noise_seed</code>: Seed to use to add random noise.</p>
-<p><code>initialize</code>: If True, then inside each param group of the <code>optimizer</code> a new field is set called <code>initial_{field_name}</code> where <code>field_name</code> refers to the field in param group that we are scheduling. Typically <code>field_name='lr'</code>.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="optimizer"><code>optimizer</code><a class="anchor-link" href="#optimizer"> </a></h3>
 </div>
 </div>
@@ -460,6 +444,71 @@ nb_path: "nbs/07c_stepLR.ipynb"
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>As we can see by setting up <code>warmup_t</code> and <code>warmup_lr_init</code>, the <code>cosine</code> scheduler first starts with a value of <code>warmup_lr_init</code>, then gradually progresses up to the <code>initial_lr</code> set in the optimizer which is 1e-4. It takes <code>warmup_t</code> number of epochs to go from <code>warmup_lr_init</code> to <code>initial_lr</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="noise_range_t"><code>noise_range_t</code><a class="anchor-link" href="#noise_range_t"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The upper and lower limit of noise.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="noise_pct"><code>noise_pct</code><a class="anchor-link" href="#noise_pct"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Percentage of noise to add.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="noise_std"><code>noise_std</code><a class="anchor-link" href="#noise_std"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Noise standard deviation.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="noise_seed"><code>noise_seed</code><a class="anchor-link" href="#noise_seed"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Seed to use to add random noise.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="initialize"><code>initialize</code><a class="anchor-link" href="#initialize"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If True, then inside each param group of the <code>optimizer</code> a new field is set called <code>initial_{field_name}</code> where <code>field_name</code> refers to the field in param group that we are scheduling. Typically <code>field_name='lr'</code>.</p>
 
 </div>
 </div>

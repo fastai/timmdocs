@@ -165,28 +165,6 @@ This is described in the paper <a href="https://arxiv.org/abs/1608.03983">https:
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>optimizer:Optimizer</code>: The optimizer used to update the parameters of the model.</p>
-<p><code>t_initial:int</code>: The number of epochs for scheduling</p>
-<p><code>t_mul:float=1.0</code>: Specific to <code>SGDR</code> schedule which updates the cosine annealing length as describe in the paper.</p>
-<p><code>lr_min:float=0.0</code>: The minimum learning rate to ever use. The scheduler does not anneal the learning rate below 
-this value.</p>
-<p><code>decay_rate:float=1.0</code>: The decay rate of the learning rate scheduler.</p>
-<p><code>warmup_t=0</code>: Number of warmup epochs</p>
-<p><code>warmup_lr_init=0</code>: Learning rate to use during the warmup epochs.</p>
-<p><code>warmup_prefix=False</code>: The i<sub>th</sub> epoch number becomes <code>i - warmup_t</code>.</p>
-<p><code>cycle_limit=0</code>: The number of total possible restarts.</p>
-<p><code>t_in_epochs=True</code>: If set to False, the learning rates returned for epoch <code>t</code> are <code>None</code>.</p>
-<p><code>noise_range_t=None</code>: Add noise to learning rate scheduler.</p>
-<p><code>noise_pct=0.67</code>: The amount of noise to be added.</p>
-<p><code>noise_std=1.0</code>: Noise standard deviation.</p>
-<p><code>noise_seed=42</code>: Noise seed to use.</p>
-<p><code>initialize=True</code>: If set to True, then, the an attributes <code>initial_lr</code> is set to each param group.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="optimizer"><code>optimizer</code><a class="anchor-link" href="#optimizer"> </a></h3>
 </div>
 </div>
@@ -674,6 +652,84 @@ this value.</p>
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="t_in_epochs"><code>t_in_epochs</code><a class="anchor-link" href="#t_in_epochs"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If set to False, the learning rates returned for epoch <code>t</code> are <code>None</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="noise_range_t"><code>noise_range_t</code><a class="anchor-link" href="#noise_range_t"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Add noise to learning rate scheduler.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="noise_pct"><code>noise_pct</code><a class="anchor-link" href="#noise_pct"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The amount of noise to be added. Defaults to 0.67.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="noise_std"><code>noise_std</code><a class="anchor-link" href="#noise_std"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Noise standard deviation. Defaults to 1.0.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="noise_seed"><code>noise_seed</code><a class="anchor-link" href="#noise_seed"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Noise seed to use. Defaults to 42.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="initialize"><code>initialize</code><a class="anchor-link" href="#initialize"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If set to True, then, the an attributes <code>initial_lr</code> is set to each param group. Defaults to <code>True</code>.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>{% include note.html content='we leave it up to the reader to try and experiment how the LR annealing scheduling get&#8217;s updated by adding in noise hyperparams. ' %}</p>
