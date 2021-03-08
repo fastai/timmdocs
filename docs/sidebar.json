@@ -35,7 +35,8 @@
         "Overview": "/schedulers",
         "Cosine": "/SGDR", 
         "StepLR": "/stepLR",
-        "Tanh": "/tanh"
+        "Tanh": "/tanh", 
+        "Plateau": "/plateau"
       },
       "Tutorials": {
         "What all goes on inside the create_model function?": "/tutorial_feature_extractor",
