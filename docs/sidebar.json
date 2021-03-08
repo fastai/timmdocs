@@ -34,7 +34,7 @@
       "Schedulers": {
         "Overview": "/schedulers",
         "Cosine": "/SGDR", 
-        "StepLR": "/StepLR",
+        "StepLR": "/stepLR",
         "Tanh": "/tanh"
       },
       "Tutorials": {

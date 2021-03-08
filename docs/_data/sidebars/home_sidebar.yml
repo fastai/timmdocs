@@ -89,7 +89,7 @@ entries:
           url: /SGDR
         - output: web,pdf
           title: StepLR
-          url: /StepLR
+          url: /stepLR
         - output: web,pdf
           title: Tanh
           url: /tanh
