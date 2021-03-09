@@ -43,10 +43,10 @@ entries:
       - output: web
         subfolderitems:
         - output: web,pdf
-          title: Model Architectures (WIP)
+          title: Model Architectures
           url: /model_architectures
         - output: web,pdf
-          title: Models API
+          title: Models API & Pretrained weights
           url: /models
         - output: web,pdf
           title: Create Model
