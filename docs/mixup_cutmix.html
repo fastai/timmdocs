@@ -46,9 +46,7 @@ nb_path: "nbs/05a_mixup_cutmix.ipynb"
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The various training arguments that are of interest when applying <code>Mixup</code>/<code>CutMix</code> data augmentations are:</p>
-
-<pre><code>markdown
---mixup MIXUP         mixup alpha, mixup enabled if &gt; 0. (default: 0.)
+<div class="highlight"><pre><span></span>--mixup MIXUP         mixup alpha, mixup enabled if &gt; 0. (default: 0.)
 --cutmix CUTMIX       cutmix alpha, cutmix enabled if &gt; 0. (default: 0.)
 --cutmix-minmax CUTMIX_MINMAX [CUTMIX_MINMAX ...]
                     cutmix min/max ratio, overrides alpha and enables
@@ -60,9 +58,10 @@ nb_path: "nbs/05a_mixup_cutmix.ipynb"
                     Probability of switching to cutmix when both mixup and
                     cutmix enabled
 --mixup-mode MIXUP_MODE
-                    How to apply mixup/cutmix params. Per "batch", "pair",
-                    or "elem"
---mixup-off-epoch N   Turn off mixup after this epoch, disabled if 0. (default: 0.)</code></pre>
+                    How to apply mixup/cutmix params. Per &quot;batch&quot;, &quot;pair&quot;,
+                    or &quot;elem&quot;
+--mixup-off-epoch N   Turn off mixup after this epoch, disabled if 0. (default: 0.)
+</pre></div>
 
 </div>
 </div>
