@@ -31,12 +31,14 @@ nb_path: "nbs/07_schedulers.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In <code>timm</code>, essentially we have a total of four different schedulers:</p>
+<p>In <code>timm</code>, essentially we have a total of six different schedulers:</p>
 <ol>
-<li><a href="https://arxiv.org/abs/1608.03983">SGDR: Stochastic Gradient Descent with Warm Restarts</a></li>
-<li><a href="https://arxiv.org/abs/1806.01593">Stochastic Gradient Descent with Hyperbolic-Tangent Decay on Classification</a></li>
-<li><a href="https://github.com/rwightman/pytorch-image-models/blob/master/timm/scheduler/step_lr.py#L13">StepLR</a></li>
+<li><a href="https://github.com/rwightman/pytorch-image-models/blob/master/timm/scheduler/cosine_lr.py#L18">CosineLRScheduler</a> - <a href="https://arxiv.org/abs/1608.03983">SGDR: Stochastic Gradient Descent with Warm Restarts</a></li>
+<li><a href="https://github.com/rwightman/pytorch-image-models/blob/master/timm/scheduler/tanh_lr.py#L18">TanhLRScheduler</a> -  <a href="https://arxiv.org/abs/1806.01593">Stochastic Gradient Descent with Hyperbolic-Tangent Decay on Classification</a></li>
+<li><a href="https://github.com/rwightman/pytorch-image-models/blob/master/timm/scheduler/step_lr.py#L13">StepLRScheduler</a></li>
 <li><a href="https://github.com/rwightman/pytorch-image-models/blob/master/timm/scheduler/plateau_lr.py#L12">PlateauLRScheduler</a></li>
+<li><a href="https://github.com/rwightman/pytorch-image-models/blob/master/timm/scheduler/multistep_lr.py#L10">MultiStepLRScheduler</a></li>
+<li><a href="https://github.com/rwightman/pytorch-image-models/blob/master/timm/scheduler/poly_lr.py#L18">PolyLRScheduler</a> - SGDR scheduler with Polynomial anneling function.</li>
 </ol>
 <p>In this tutorial we are going to look at each one of them in detail and also look at how we can train our models using these schedulers using the <code>timm</code> training script or use them as standalone schedulers for custom PyTorch training scripts.</p>
 
@@ -58,13 +60,13 @@ nb_path: "nbs/07_schedulers.ipynb"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="SGDR">SGDR<a class="anchor-link" href="#SGDR"> </a></h3>
+<h3 id="CosineLRScheduler---SGDR">CosineLRScheduler - SGDR<a class="anchor-link" href="#CosineLRScheduler---SGDR"> </a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>First, let's look at the <code>SGDR</code> scheduler also referred to as the <code>cosine</code> scheduler in <code>timm</code>.</p>
+<p>First, let's look at the <code>CosineLRScheduler</code> - <code>SGDR</code> scheduler also referred to as the <code>cosine</code> scheduler in <code>timm</code>.</p>
 <p>The <code>SGDR</code> scheduler, or the <code>Stochastic Gradient Descent with Warm Restarts</code> scheduler schedules the learning rate using a cosine schedule but with a tweak. It resets the learning rate to the initial value after some number of epochs.</p>
 
 </div>
@@ -86,13 +88,13 @@ nb_path: "nbs/07_schedulers.ipynb"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="StepLR">StepLR<a class="anchor-link" href="#StepLR"> </a></h3>
+<h3 id="StepLRScheduler">StepLRScheduler<a class="anchor-link" href="#StepLRScheduler"> </a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The <code>StepLR</code> is a basic step LR schedule with warmup, noise. 
+<p>The <code>StepLRScheduler</code> is a basic step LR schedule with warmup, noise. 
 {% include note.html content='PyTorch&#8217;s implementation does not support warmup or noise. ' %}</p>
 
 </div>
@@ -121,13 +123,13 @@ nb_path: "nbs/07_schedulers.ipynb"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Stochastic-Gradient-Descent-with-Hyperbolic-Tangent-Decay-on-Classification">Stochastic Gradient Descent with Hyperbolic-Tangent Decay on Classification<a class="anchor-link" href="#Stochastic-Gradient-Descent-with-Hyperbolic-Tangent-Decay-on-Classification"> </a></h3>
+<h3 id="TanhLRScheduler---SGDR-with-Hyperbolic-Tangent-Decay.">TanhLRScheduler - SGDR with Hyperbolic-Tangent Decay.<a class="anchor-link" href="#TanhLRScheduler---SGDR-with-Hyperbolic-Tangent-Decay."> </a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This is also referred to as the <code>tanh</code> annealing. <code>tanh</code> stands for hyperbolic tangent decay. The annealing using this scheduler looks something like:</p>
+<p><code>TanhLRScheduler</code> is also referred to as the <code>tanh</code> annealing. <code>tanh</code> stands for hyperbolic tangent decay. The annealing using this scheduler looks something like:</p>
 
 </div>
 </div>
@@ -154,7 +156,71 @@ nb_path: "nbs/07_schedulers.ipynb"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This scheduler is very similar to PyTorch's <a href="https://pytorch.org/docs/stable/_modules/torch/optim/lr_scheduler.html#ReduceLROnPlateau">ReduceLROnPlateau</a> scheduler. The basic idea is to track an eval metric and based on the evaluation metric's value, the <code>lr</code> is reduced using <code>StepLR</code> if the eval metric is stagnant for a certain number of epochs.</p>
+<p>This scheduler is based on PyTorch's <a href="https://pytorch.org/docs/stable/_modules/torch/optim/lr_scheduler.html#ReduceLROnPlateau">ReduceLROnPlateau</a> scheduler with possible warmup and noise. The basic idea is to track an eval metric and based on the evaluation metric's value, the <code>lr</code> is reduced using <code>StepLR</code> if the eval metric is stagnant for a certain number of epochs.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="MultiStepLRScheduler">MultiStepLRScheduler<a class="anchor-link" href="#MultiStepLRScheduler"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The <code>MultiStepLRScheduler</code> is LR schedule with decay learning rate at given epochs, with warmup, noise.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The schedule for <code>MultiStepLRScheduler</code> annealing (with 'step' at 10, 30) looks something like:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>{% include image.html alt="StepLR" width="500" max-width="500" file="/timmdocs/images/MultistepLr.png" %}</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the above <code>MultiStepLRScheduler</code> schedule, <code>decay_t=[10, 30]</code> and <code>decay_rate=0.5</code> with an initial <code>lr</code> of 0.1.\
+At epoch number 10 and 30, the learning rate is updated to be <code>lr * decay_rate</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="PolyLRScheduler---SGDR-with-Polynomial-Decay.">PolyLRScheduler - SGDR with Polynomial Decay.<a class="anchor-link" href="#PolyLRScheduler---SGDR-with-Polynomial-Decay."> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>PolyLRScheduler</code> is also referred to as the <code>poly</code> annealing.\
+<code>poly</code> stands for polynomial decay.\
+The annealing using this scheduler looks something like:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>{% include image.html alt="Tanh" width="500" max-width="500" file="/timmdocs/images/PolyLR.png" %}</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It is similar to the <code>cosine</code> and <code>tanh</code>in the sense that the learning rate is set to the initial <code>lr</code> after a certain number of epochs but the annealing is done using the <code>poly</code> function.</p>
 
 </div>
 </div>
@@ -179,6 +245,8 @@ nb_path: "nbs/07_schedulers.ipynb"
 <li>For <code>PlatueLRScheduler</code> we pass in <code>--sched plateau</code>. </li>
 <li>For <code>TanhLRScheduler</code>, we pass in <code>--sched tanh</code>.</li>
 <li>For <code>StepLR</code>, we pass in <code>--sched step</code>.</li>
+<li>For <code>MultiStepLRScheduler</code>, we pass in <code>--sched multistep</code>.</li>
+<li>For <code>PolyLRScheduler</code>, we pass in <code>--sched poly</code>.</li>
 </ul>
 
 </div>
