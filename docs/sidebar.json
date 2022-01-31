@@ -36,7 +36,9 @@
         "Cosine": "/SGDR", 
         "StepLR": "/stepLR",
         "Tanh": "/tanh", 
-        "Plateau": "/plateau"
+        "Plateau": "/plateau",
+        "Multistep": "/multistepLR",
+        "PolyLR": "/PolyLR"
       },
       "Tutorials": {
         "What all goes on inside the create_model function?": "/tutorial_feature_extractor",

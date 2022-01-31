@@ -66,15 +66,14 @@ nb_path: "nbs/02_dataset.ipynb"
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The <code>parser</code> is set automatically using a <code>create_parser</code> factory method. The <code>parser</code> finds all images and targets in <code>root</code> where the <code>root</code> folder is structured like so:</p>
-
-<pre><code>markdown
-root/dog/xxx.png
+<div class="highlight"><pre><span></span>root/dog/xxx.png
 root/dog/xxy.png
 root/dog/xxz.png
 
 root/cat/123.png
 root/cat/nsdf3.png
-root/cat/asd932_.png</code></pre>
+root/cat/asd932_.png
+</pre></div>
 
 </div>
 </div>
@@ -297,7 +296,7 @@ tar -xvf imagenette2-320.tar
 <span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">14</span><span class="o">-</span><span class="mi">9085</span><span class="n">b17eda0c</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="o">----&gt;</span> <span class="mi">1</span> <span class="n">iterable_dataset</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="o">.</span><span class="mi">8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">torch</span><span class="o">/</span><span class="n">utils</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">dataset</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
+<span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">torch</span><span class="o">/</span><span class="n">utils</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">dataset</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
      <span class="mi">30</span> 
      <span class="mi">31</span>     <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T_co</span><span class="p">:</span><span class="o">---&gt;</span> <span class="mi">32</span>         <span class="k">raise</span> <span class="ne">NotImplementedError</span>     <span class="mi">33</span> 
      <span class="mi">34</span>     <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s1">&#39;Dataset[T_co]&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;ConcatDataset[T_co]&#39;</span><span class="p">:</span>

@@ -96,6 +96,12 @@ entries:
         - output: web,pdf
           title: Plateau
           url: /plateau
+        - output: web,pdf
+          title: Multistep
+          url: /multistepLR
+        - output: web,pdf
+          title: PolyLR
+          url: /PolyLR
         title: Schedulers
       - output: web
         subfolderitems:
