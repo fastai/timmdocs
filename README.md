@@ -1,16 +1,3 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
-
-- [Pytorch Image Models (timm)](#pytorch-image-models-timm)
-  - [Install](#install)
-  - [How to use](#how-to-use)
-    - [Create a model](#create-a-model)
-    - [List Models with Pretrained Weights](#list-models-with-pretrained-weights)
-    - [Search for model architectures by Wildcard](#search-for-model-architectures-by-wildcard)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 # Pytorch Image Models (timm)
 > `timm` is a deep-learning library created by <a href='https://twitter.com/wightmanr'>Ross Wightman</a> and is a collection of SOTA computer vision models, layers, utilities, optimizers, schedulers, data-loaders, augmentations and also training/validating scripts with ability to reproduce ImageNet training results. 
 
@@ -32,7 +19,7 @@ cd pytorch-image-models && pip install -e .
 
 ### Create a model
 
-```python
+```
 import timm 
 import torch
 
@@ -45,7 +32,7 @@ It is that simple to create a model using `timm`. The `create_model` function is
 
 To create a pretrained model, simply pass in `pretrained=True`.
 
-```python
+```
 pretrained_resnet_34 = timm.create_model('resnet34', pretrained=True)
 ```
 
@@ -54,7 +41,7 @@ pretrained_resnet_34 = timm.create_model('resnet34', pretrained=True)
 
 To create a model with a custom number of classes, simply pass in `num_classes=<number_of_classes>`.
 
-```python
+```
 import timm 
 import torch
 
@@ -75,7 +62,7 @@ model(x).shape
 
 `timm.list_models()` returns a complete list of available models in `timm`. To have a look at a complete list of pretrained models, pass in `pretrained=True` in `list_models`.
 
-```python
+```
 avail_pretrained_models = timm.list_models(pretrained=True)
 len(avail_pretrained_models), avail_pretrained_models[:5]
 ```
@@ -98,7 +85,7 @@ There are a total of **271** models with pretrained weights currently available 
 
 It is also possible to search for model architectures using Wildcard as below:
 
-```python
+```
 all_densenet_models = timm.list_models('*densenet*')
 all_densenet_models
 ```

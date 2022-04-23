@@ -74,8 +74,10 @@ nb_path: "nbs/05a_mixup_cutmix.ipynb"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To train a network with only mixup enabled, simply pass in the <code>--mixup</code> argument with a probability of augmentation.</p>
-<div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">train</span><span class="o">.</span><span class="n">py</span> <span class="o">../</span><span class="n">imagenette2</span><span class="o">-</span><span class="mi">320</span> <span class="o">--</span><span class="n">mixup</span> <span class="mf">0.7</span>
+<p>To train a network with only mixup enabled, simply pass in the <code>--mixup</code> argument with value of Mixup alpha.<br>
+Default probability of augmentation is 1.0, if you need to change it, use <code>--mixup-prob</code> argument with new value.</p>
+<div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">train</span><span class="o">.</span><span class="n">py</span> <span class="o">../</span><span class="n">imagenette2</span><span class="o">-</span><span class="mi">320</span> <span class="o">--</span><span class="n">mixup</span> <span class="mf">0.5</span>
+<span class="n">python</span> <span class="n">train</span><span class="o">.</span><span class="n">py</span> <span class="o">../</span><span class="n">imagenette2</span><span class="o">-</span><span class="mi">320</span> <span class="o">--</span><span class="n">mixup</span> <span class="mf">0.5</span> <span class="o">--</span><span class="n">mixup</span><span class="o">-</span><span class="n">prob</span> <span class="mf">0.7</span>
 </pre></div>
 
 </div>
@@ -89,8 +91,10 @@ nb_path: "nbs/05a_mixup_cutmix.ipynb"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To train a network only CutMix enabled, simply pass in the <code>--cutmix</code> argument with a probability of augmentation.</p>
+<p>To train a network only CutMix enabled, simply pass in the <code>--cutmix</code> argument with with value of Cutmix alpha.<br>
+Default probability of augmentation is 1.0, if you need to change it, use <code>--mixup-prob</code> argument with new value.</p>
 <div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">train</span><span class="o">.</span><span class="n">py</span> <span class="o">../</span><span class="n">imagenette2</span><span class="o">-</span><span class="mi">320</span> <span class="o">--</span><span class="n">cutmix</span> <span class="mf">0.2</span>
+<span class="n">python</span> <span class="n">train</span><span class="o">.</span><span class="n">py</span> <span class="o">../</span><span class="n">imagenette2</span><span class="o">-</span><span class="mi">320</span> <span class="o">--</span><span class="n">cutmix</span> <span class="mf">0.2</span> <span class="o">--</span><span class="n">mixup</span><span class="o">-</span><span class="n">prob</span> <span class="mf">0.7</span>
 </pre></div>
 
 </div>
@@ -107,13 +111,10 @@ nb_path: "nbs/05a_mixup_cutmix.ipynb"
 <p>To train a nueral network with both enabled,</p>
 <div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">train</span><span class="o">.</span><span class="n">py</span> <span class="o">../</span><span class="n">imagenette2</span><span class="o">-</span><span class="mi">320</span> <span class="o">--</span><span class="n">cutmix</span> <span class="mf">0.4</span> <span class="o">--</span><span class="n">mixup</span> <span class="mf">0.5</span>
 </pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>When both Mixup and CutMix are enabled, then for each batch, <code>timm</code> either</p>
+<p>Default probability of switching betwin mixup and cutmix is 0.5.<br>
+To change it use <code>--mixup-switch-prob</code> argument. It is probability to switch to cutmix.</p>
+<div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">train</span><span class="o">.</span><span class="n">py</span> <span class="o">../</span><span class="n">imagenette2</span><span class="o">-</span><span class="mi">320</span> <span class="o">--</span><span class="n">cutmix</span> <span class="mf">0.4</span> <span class="o">--</span><span class="n">mixup</span> <span class="mf">0.5</span> <span class="o">--</span><span class="n">mixup</span><span class="o">-</span><span class="n">switch</span><span class="o">-</span><span class="n">prob</span> <span class="mf">0.4</span>
+</pre></div>
 
 </div>
 </div>

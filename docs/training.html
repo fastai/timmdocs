@@ -322,12 +322,15 @@ To disentangle this mixture distribution into two simpler ones respectively for 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To enable either mixup or cutmix, simply add the <code>--mixup</code> or <code>--cutmix</code> flag with probability of applying the augmentation.</p>
+<p>To enable either mixup or cutmix, simply add the <code>--mixup</code> or <code>--cutmix</code> flag with alpha value.<br>
+Default probability of applying the augmentation is 1.0. If you need to change it, use <code>--mixup-prob</code> argument with new value.</p>
 <p>For example, to enable mixup,</p>
 <div class="highlight"><pre><span></span><span class="n">train</span><span class="o">.</span><span class="n">py</span> <span class="o">../</span><span class="n">imagenette2</span><span class="o">-</span><span class="mi">320</span> <span class="o">--</span><span class="n">mixup</span> <span class="mf">0.5</span>
+<span class="n">train</span><span class="o">.</span><span class="n">py</span> <span class="o">../</span><span class="n">imagenette2</span><span class="o">-</span><span class="mi">320</span> <span class="o">--</span><span class="n">mixup</span> <span class="mf">0.5</span> <span class="o">--</span><span class="n">mixup</span><span class="o">-</span><span class="n">prob</span> <span class="mf">0.7</span>
 </pre></div>
 <p>Or for Cutmix,</p>
 <div class="highlight"><pre><span></span><span class="n">train</span><span class="o">.</span><span class="n">py</span> <span class="o">../</span><span class="n">imagenette2</span><span class="o">-</span><span class="mi">320</span> <span class="o">--</span><span class="n">cutmix</span> <span class="mf">0.5</span>
+<span class="n">train</span><span class="o">.</span><span class="n">py</span> <span class="o">../</span><span class="n">imagenette2</span><span class="o">-</span><span class="mi">320</span> <span class="o">--</span><span class="n">cutmix</span> <span class="mf">0.5</span> <span class="o">--</span><span class="n">mixup</span><span class="o">-</span><span class="n">prob</span> <span class="mf">0.7</span>
 </pre></div>
 
 </div>
@@ -338,7 +341,7 @@ To disentangle this mixture distribution into two simpler ones respectively for 
 <p>It is also possible to enable both,</p>
 <div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">train</span><span class="o">.</span><span class="n">py</span> <span class="o">../</span><span class="n">imagenette2</span><span class="o">-</span><span class="mi">320</span> <span class="o">--</span><span class="n">mixup</span> <span class="mf">0.5</span> <span class="o">--</span><span class="n">cutmix</span> <span class="mf">0.5</span> <span class="o">--</span><span class="n">mixup</span><span class="o">-</span><span class="n">switch</span><span class="o">-</span><span class="n">prob</span> <span class="mf">0.3</span>
 </pre></div>
-<p>The above command will use either Mixup or Cutmix as data augmentation techniques and apply it to the batch with 50% probability. It will also switch between the two with 30% probability.</p>
+<p>The above command will use either Mixup or Cutmix as data augmentation techniques and apply it to the batch with 50% probability. It will also switch between the two with 30% probability (Mixup - 70%, 30% switch to Cutmix).</p>
 
 </div>
 </div>
