@@ -220,7 +220,7 @@ nb_path: "nbs/01b_training.ipynb"
 <div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">train</span><span class="o">.</span><span class="n">py</span> <span class="o">./</span><span class="n">imagenette2</span><span class="o">-</span><span class="mi">320</span> <span class="o">--</span><span class="n">aug</span><span class="o">-</span><span class="n">splits</span> <span class="mi">3</span> <span class="o">--</span><span class="n">jsd</span>
 </pre></div>
 <p><code>timm</code> also supports augmix with <code>RandAugment</code> and <code>AutoAugment</code> like so:</p>
-<div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">train</span><span class="o">.</span><span class="n">py</span> <span class="o">./</span><span class="n">imagenette2</span><span class="o">-</span><span class="mi">320</span> <span class="o">--</span><span class="n">aug</span><span class="o">-</span><span class="n">splits</span> <span class="mi">3</span> <span class="o">--</span><span class="n">jsd</span> <span class="o">--</span><span class="n">aa</span> <span class="n">rand</span><span class="o">-</span><span class="n">m9</span><span class="o">-</span><span class="n">mstd0</span><span class="o">.</span><span class="mi">5</span><span class="o">-</span><span class="n">inc1</span>
+<div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">train</span><span class="o">.</span><span class="n">py</span> <span class="o">./</span><span class="n">imagenette2</span><span class="o">-</span><span class="mi">320</span> <span class="o">--</span><span class="n">aug</span><span class="o">-</span><span class="n">splits</span> <span class="mi">3</span> <span class="o">--</span><span class="n">jsd</span> <span class="o">--</span><span class="n">aa</span> <span class="n">rand</span><span class="o">-</span><span class="n">m9</span><span class="o">-</span><span class="n">mstd0</span><span class="mf">.5</span><span class="o">-</span><span class="n">inc1</span>
 </pre></div>
 
 </div>
@@ -266,11 +266,10 @@ nb_path: "nbs/01b_training.ipynb"
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>From the paper,</p>
+<div class="highlight"><pre><span></span>Batch normalization serves as an essential component for many state-of-the-art computer vision models. Specifically, BN normalizes input features by the mean and variance computed within each mini-batch. <span class="gs">**One intrinsic assumption of utilizing BN is that the input features should come from a single or similar distributions.**</span> This normalization behavior could be problematic if the mini-batch contains data from different distributions, there- fore resulting in inaccurate statistics estimation.
 
-<pre><code>markdown
-Batch normalization serves as an essential component for many state-of-the-art computer vision models. Specifically, BN normalizes input features by the mean and variance computed within each mini-batch. **One intrinsic assumption of utilizing BN is that the input features should come from a single or similar distributions.** This normalization behavior could be problematic if the mini-batch contains data from different distributions, there- fore resulting in inaccurate statistics estimation.
-
-To disentangle this mixture distribution into two simpler ones respectively for the clean and adversarial images, we hereby propose an auxiliary BN to guarantee its normalization statistics are exclusively preformed on the adversarial examples.</code></pre>
+To disentangle this mixture distribution into two simpler ones respectively for the clean and adversarial images, we hereby propose an auxiliary BN to guarantee its normalization statistics are exclusively preformed on the adversarial examples.
+</pre></div>
 
 </div>
 </div>
@@ -278,7 +277,7 @@ To disentangle this mixture distribution into two simpler ones respectively for 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>To enable split batch norm,</p>
-<div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">train</span><span class="o">.</span><span class="n">py</span> <span class="o">./</span><span class="n">imagenette2</span><span class="o">-</span><span class="mi">320</span> <span class="o">--</span><span class="n">aug</span><span class="o">-</span><span class="n">splits</span> <span class="mi">3</span> <span class="o">--</span><span class="n">aa</span> <span class="n">rand</span><span class="o">-</span><span class="n">m9</span><span class="o">-</span><span class="n">mstd0</span><span class="o">.</span><span class="mi">5</span><span class="o">-</span><span class="n">inc1</span> <span class="o">--</span><span class="n">split</span><span class="o">-</span><span class="n">bn</span>
+<div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">train</span><span class="o">.</span><span class="n">py</span> <span class="o">./</span><span class="n">imagenette2</span><span class="o">-</span><span class="mi">320</span> <span class="o">--</span><span class="n">aug</span><span class="o">-</span><span class="n">splits</span> <span class="mi">3</span> <span class="o">--</span><span class="n">aa</span> <span class="n">rand</span><span class="o">-</span><span class="n">m9</span><span class="o">-</span><span class="n">mstd0</span><span class="mf">.5</span><span class="o">-</span><span class="n">inc1</span> <span class="o">--</span><span class="n">split</span><span class="o">-</span><span class="n">bn</span>
 </pre></div>
 
 </div>
@@ -300,9 +299,8 @@ To disentangle this mixture distribution into two simpler ones respectively for 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Synchronized batch norm is only used when training on multiple GPUs. From <a href="https://paperswithcode.com/method/syncbn">papers with code</a>:</p>
-
-<pre><code>markdown
-Synchronized Batch Normalization (SyncBN) is a type of batch normalization used for multi-GPU training. Standard batch normalization only normalizes the data within each device (GPU). SyncBN normalizes the input within the whole mini-batch.</code></pre>
+<div class="highlight"><pre><span></span>Synchronized Batch Normalization (SyncBN) is a type of batch normalization used for multi-GPU training. Standard batch normalization only normalizes the data within each device (GPU). SyncBN normalizes the input within the whole mini-batch.
+</pre></div>
 
 </div>
 </div>
