@@ -1,4 +1,4 @@
-baseurl: /timmdocs/
+baseurl: 
 collections:
   tooltips:
     output: false
