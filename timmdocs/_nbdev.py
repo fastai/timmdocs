@@ -6,7 +6,7 @@ index = {}
 
 modules = []
 
-doc_url = "https://fastai.github.io/timmdocs/"
+doc_url = "https://timm.fast.ai/"
 
 git_url = "https://github.com/fastai/timmdocs/tree/master/"
 
