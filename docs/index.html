@@ -78,6 +78,22 @@ cd pytorch-image-models &amp;&amp; pip install -e .</code></pre>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>torch.Size([1, 1000])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
     {% endraw %}
 
@@ -115,7 +131,7 @@ cd pytorch-image-models &amp;&amp; pip install -e .</code></pre>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>Downloading: &#34;https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/resnet34-43635321.pth&#34; to /Users/amanarora/.cache/torch/hub/checkpoints/resnet34-43635321.pth
+<pre>Downloading: &#34;https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/resnet34-43635321.pth&#34; to /home/tmabraham/.cache/torch/hub/checkpoints/resnet34-43635321.pth
 </pre>
 </div>
 </div>
@@ -207,12 +223,12 @@ cd pytorch-image-models &amp;&amp; pip install -e .</code></pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(271,
+<pre>(592,
  [&#39;adv_inception_v3&#39;,
-  &#39;cspdarknet53&#39;,
-  &#39;cspresnet50&#39;,
-  &#39;cspresnext50&#39;,
-  &#39;densenet121&#39;])</pre>
+  &#39;bat_resnext26ts&#39;,
+  &#39;beit_base_patch16_224&#39;,
+  &#39;beit_base_patch16_224_in22k&#39;,
+  &#39;beit_base_patch16_384&#39;])</pre>
 </div>
 
 </div>
@@ -285,6 +301,144 @@ cd pytorch-image-models &amp;&amp; pip install -e .</code></pre>
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Fine-tune-timm-model-in-fastai">Fine-tune timm model in fastai<a class="anchor-link" href="#Fine-tune-timm-model-in-fastai"> </a></h3>
 </div>
- 
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The <a href="https://docs.fast.ai">fastai</a> library has support for fine-tuning models from timm:</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">fastai.vision.all</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">untar_data</span><span class="p">(</span><span class="n">URLs</span><span class="o">.</span><span class="n">PETS</span><span class="p">)</span><span class="o">/</span><span class="s1">&#39;images&#39;</span>
+<span class="n">dls</span> <span class="o">=</span> <span class="n">ImageDataLoaders</span><span class="o">.</span><span class="n">from_name_func</span><span class="p">(</span>
+    <span class="n">path</span><span class="p">,</span> <span class="n">get_image_files</span><span class="p">(</span><span class="n">path</span><span class="p">),</span> <span class="n">valid_pct</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+    <span class="n">label_func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">isupper</span><span class="p">(),</span> <span class="n">item_tfms</span><span class="o">=</span><span class="n">Resize</span><span class="p">(</span><span class="mi">224</span><span class="p">))</span>
+    
+<span class="c1"># if a string is passed into the model argument, it will now use timm (if it is installed)</span>
+<span class="n">learn</span> <span class="o">=</span> <span class="n">vision_learner</span><span class="p">(</span><span class="n">dls</span><span class="p">,</span> <span class="s1">&#39;vit_tiny_patch16_224&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="n">error_rate</span><span class="p">)</span>
+
+<span class="n">learn</span><span class="o">.</span><span class="n">fine_tune</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea "><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th>epoch</th>
+      <th>train_loss</th>
+      <th>valid_loss</th>
+      <th>error_rate</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0.201583</td>
+      <td>0.024980</td>
+      <td>0.006766</td>
+      <td>00:08</td>
+    </tr>
+  </tbody>
+</table></div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea "><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th>epoch</th>
+      <th>train_loss</th>
+      <th>valid_loss</th>
+      <th>error_rate</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0.040622</td>
+      <td>0.024036</td>
+      <td>0.005413</td>
+      <td>00:10</td>
+    </tr>
+  </tbody>
+</table></div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+</div>
+
 
